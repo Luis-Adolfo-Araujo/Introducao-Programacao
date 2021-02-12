@@ -1,0 +1,37 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red97\green97\blue97;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c45490\c45490\c45490;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #
+\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+9. Escreva um c\'f3digo usando o simulador Assembly 8 bits que transfere 20 bytes armazenados em mem\'f3ria\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 como uma sequencia de caracteres para uma nova regi\'e3o de mem\'f3ria iniciada no endere\'e7o armazenado no registrador A.
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+JMP inicio\
+\
+frase:  DB "Hello World! Wassup?"\
+	DB 0	\
+\
+inicio:\
+MOV C, frase ; Associa o come\'e7o da 'frase' ao registrador C\
+MOV A, 100   ; Novo endere\'e7o \
+CALL .loop\
+\
+\
+.loop:\
+MOV D, [C] 	; Registrador que vai receber o caractere\
+MOV [A], D	; Copia o caracter para registrador\
+INC C\
+INC A\
+CMP B, [C]      ; compara registrador B (0) com C ate alcan\'e7ar DB 0\
+JNZ .loop	; enquanto nao for zero, loop\
+\
+\
+}

@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red97\green97\blue97;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c45490\c45490\c45490;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 #
+\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+6. Escreva um c\'f3digo para o simulador Assembly de 8 bit que determina o valor de y para a seguinte equa\'e7\'e3o:\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 y = 2*B - 10 + A\cb1 \
+\cb3 onde A e B refere-se ao conte\'fado dos registradores A e B, respectivamente.
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+JMP inicio\
+\
+num1: DB 6\
+num2: DB 7\
+sub_num: DB 10\
+mul_num: DB 2\
+y: DB 0\
+\
+inicio:\
+MOV A, [num1]\
+MOV B, [num2]\
+CALL muda_valores\
+CALL multiplicar\
+CALL muda_valores2\
+CALL subtrair\
+CALL somar\
+CALL resultado_y\
+HLT\
+\
+muda_valores:\
+MOV C, B\
+MOV B, A\
+MOV A, C\
+\
+multiplicar:\
+MUL [mul_num]\
+\
+muda_valores2:\
+MOV C, B\
+MOV B, A\
+MOV A, C\
+\
+subtrair:\
+SUB B, [sub_num]\
+\
+somar:\
+ADD B, A\
+\
+resultado_y:\
+MOV [6], B}
